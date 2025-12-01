@@ -1,7 +1,5 @@
-/** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: "class", // full dark-mode support
-
+  darkMode: "class", 
   content: [
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}"
@@ -9,9 +7,6 @@ export default {
 
   theme: {
     extend: {
-      /* ----------------------------------------
-         🎨 Premium Color Palette
-      ---------------------------------------- */
       colors: {
         primary: {
           50: "#fdf2f8",
@@ -35,31 +30,20 @@ export default {
           500: "#474a50",
           600: "#2e3035",
           700: "#1d1e22",
-          800: "#111114", // charcoal-black
+          800: "#111114",
           900: "#0a0a0c",
-          950: "#050507"  // pure obsidian black
+          950: "#050507" 
         }
       },
-
-      /* ----------------------------------------
-         🍃 Smooth, Premium Shadows
-      ---------------------------------------- */
       boxShadow: {
         glow: "0 0 20px rgba(236, 72, 153, 0.35)",
         card: "0 4px 30px rgba(0,0,0,0.4)",
         soft: "0 2px 12px rgba(0,0,0,0.2)"
       },
 
-      /* ----------------------------------------
-         🧊 Glass Effects (for your UI theme)
-      ---------------------------------------- */
       backdropBlur: {
         xs: "2px"
       },
-
-      /* ----------------------------------------
-         🔠 Modern Typography Scale
-      ---------------------------------------- */
       fontFamily: {
         sans: [
           "Poppins",
@@ -72,18 +56,11 @@ export default {
         ]
       },
 
-      /* ----------------------------------------
-         🟣 Rounded Utility (matches your UI radius)
-      ---------------------------------------- */
       borderRadius: {
         xl: "1rem",
         "2xl": "1.25rem",
         soft: "0.75rem"
       },
-
-      /* ----------------------------------------
-         ✨ Smooth, Luxury Animations
-      ---------------------------------------- */
       keyframes: {
         fade: {
           "0%": { opacity: 0 },
