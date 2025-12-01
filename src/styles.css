@@ -2,24 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* -----------------------------------------------------
-   🌑 Global Theme Root
-   (Can be used later for theming, animations, gradients)
------------------------------------------------------ */
 :root {
   color-scheme: dark;
   --radius: 0.75rem;
 }
-
-/* -----------------------------------------------------
-   🖤 BODY — Ultra-premium obsidian theme
------------------------------------------------------ */
 body {
   @apply min-h-screen 
          bg-gradient-to-br
-         from-[#1a1a1d]        /* warm soft charcoal */
-         via-[#242427]         /* elegant muted grey */
-         to-[#2c2c30]          /* soft shadow grey */
+         from-[#1a1a1d]        
+         via-[#242427]         
+         to-[#2c2c30]       
          text-zinc-100
          antialiased
          selection:bg-primary-500/40;
@@ -27,10 +19,6 @@ body {
   font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-
-/* -----------------------------------------------------
-   🪟 Card/Container — Glass + charcoal + subtle shadows
------------------------------------------------------ */
 .container-box {
   @apply bg-neutral-900/40
          backdrop-blur-xl
@@ -40,9 +28,6 @@ body {
          shadow-xl shadow-black/40;
 }
 
-/* -----------------------------------------------------
-   ✨ Universal Form Elements — Input / Select / Textarea
------------------------------------------------------ */
 input,
 select,
 textarea {
@@ -57,17 +42,12 @@ textarea {
          focus:border-primary-500/80
          transition duration-200;
 }
-
-/* Remove number input arrows (for clean design) */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* -----------------------------------------------------
-   💗 Primary Button — Smooth, sexy, responsive
------------------------------------------------------ */
 .btn-primary {
   @apply w-full
          py-3
@@ -79,17 +59,9 @@ input[type="number"]::-webkit-outer-spin-button {
          shadow-lg shadow-primary-500/30
          transition-all duration-300;
 }
-
-/* -----------------------------------------------------
-   🌫 Subtle Divider Line Utility
------------------------------------------------------ */
 .divider {
   @apply my-4 h-px bg-neutral-800/60;
 }
-
-/* -----------------------------------------------------
-   🧩 Utility for subtle clickable rows/cards
------------------------------------------------------ */
 .card-hover {
   @apply transition-all duration-200
          hover:bg-neutral-900/60
