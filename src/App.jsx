@@ -23,7 +23,6 @@ import ReportItem from "./pages/ReportItem"
 import ItemDetails from "./pages/ItemDetails"
 import ClaimPage from "./pages/ClaimPage"
 
-// Simple full-page loader for auth / data loading
 function FullPageLoader({ label = "Loading…" }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-950">
@@ -31,8 +30,6 @@ function FullPageLoader({ label = "Loading…" }) {
     </div>
   )
 }
-
-// Guard for routes that require authentication
 function RequireAuth({ children }) {
   const { session, loading } = useSession()
   const location = useLocation()
@@ -48,13 +45,11 @@ function RequireAuth({ children }) {
   return children
 }
 
-// Core app content (inside SessionProvider + BrowserRouter)
 function AppContent() {
   const [items, setItems] = useState([])
   const [itemsLoading, setItemsLoading] = useState(true)
   const [itemsError, setItemsError] = useState(null)
 
-  // Fetch items once and on refresh
   useEffect(() => {
     const fetchItems = async () => {
       setItemsLoading(true)
@@ -77,7 +72,6 @@ function AppContent() {
     fetchItems()
   }, [])
 
-  // Handle new report from ReportItem page
   const handleReport = async (payload) => {
     const { data, error } = await supabase
       .from("items")
@@ -169,7 +163,6 @@ function AppContent() {
   )
 }
 
-// If already logged in and goes to /login -> redirect to /app
 function LoginRedirectIfAuthed() {
   const { session, loading } = useSession()
 
