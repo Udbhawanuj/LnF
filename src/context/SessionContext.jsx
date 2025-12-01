@@ -7,10 +7,6 @@ import React, {
 } from "react"
 import { supabase } from "../lib/supabaseClient"
 
-// -----------------------------------------------------
-// Session Context
-// Provides global access to the authenticated user session.
-// -----------------------------------------------------
 
 const SessionContext = createContext({
   session: null,
@@ -21,9 +17,6 @@ export function SessionProvider({ children }) {
   const [session, setSession] = useState(null)
   const [loading, setLoading] = useState(true)
 
-  // -----------------------------------------------------
-  // Initialize the session on first load
-  // -----------------------------------------------------
   useEffect(() => {
     let mounted = true
 
@@ -40,9 +33,6 @@ export function SessionProvider({ children }) {
 
     init()
 
-    // -----------------------------------------------------
-    // Listener for login/logout/session update events
-    // -----------------------------------------------------
     const { data: authListener } = supabase.auth.onAuthStateChange(
       (_event, newSession) => {
         if (mounted) {
@@ -51,16 +41,12 @@ export function SessionProvider({ children }) {
       }
     )
 
-    // Cleanup on unmount
     return () => {
       mounted = false
       authListener?.subscription?.unsubscribe()
     }
   }, [])
 
-  // -----------------------------------------------------
-  // Memoized value prevents unnecessary re-renders
-  // -----------------------------------------------------
   const value = useMemo(
     () => ({ session, loading }),
     [session, loading]
@@ -73,5 +59,4 @@ export function SessionProvider({ children }) {
   )
 }
 
-// Hook for easy usage
 export const useSession = () => useContext(SessionContext)
